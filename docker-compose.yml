@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dfpZWZ6Q9iJrpAB
+      MYSQL_DATABASE: artwork
+      MYSQL_USER: artwork
+      MYSQL_PASSWORD: adkAckzcF1oJZt1
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/db_data
+
+  artwork:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+
+volumes:
+  db_data:
