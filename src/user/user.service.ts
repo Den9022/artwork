@@ -8,14 +8,6 @@ import { IUser } from './user.interface';
 export class UserService {
   constructor(@InjectRepository(User) private repo: Repository<IUser>) {}
 
-  async create(): Promise<IUser> {
-    const user: IUser = this.repo.create({
-      email: 'user2@email.com',
-      password: 'password',
-    });
-    return this.repo.save(user);
-  }
-
   async findOne(id: number): Promise<IUser> {
     if (!id) {
       return null;

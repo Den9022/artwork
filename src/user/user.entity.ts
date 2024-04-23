@@ -1,4 +1,4 @@
-import { Artwork } from 'src/artwork/artwork.entity';
+import { Artwork } from '../artwork/artwork.entity';
 import {
   Entity,
   Column,
@@ -20,6 +20,5 @@ export class User {
 
   @OneToMany(() => Artwork, (artwork) => artwork.user, { nullable: true })
   @JoinColumn()
-  artworks: Artwork[];
-
+  artworks: Artwork[] | null;
 }

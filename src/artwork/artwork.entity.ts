@@ -1,4 +1,4 @@
-import { User } from 'src/user/user.entity';
+import { User } from './../user/user.entity';
 import {
   AfterInsert,
   Entity,
@@ -22,7 +22,7 @@ export class Artwork {
   @Column({ nullable: true })
   thumbnail: string | null;
 
-  @ManyToOne(() => User, user => user.artworks, { nullable: true })
+  @ManyToOne(() => User, (user) => user.artworks, { nullable: true })
   @JoinColumn()
   user: User | null;
 

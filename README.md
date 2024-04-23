@@ -6,7 +6,7 @@ Backend Trial Task
 
 ```bash
 # start
-$ docker-compose up
+$ docker-compose up --build
 
 #visit
 http://localhost:3000/artwork

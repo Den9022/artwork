@@ -33,7 +33,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     ArtworkModule,
     UserModule,
-    AuthModule
+    AuthModule,
   ],
 })
 export class AppModule {}

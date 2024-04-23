@@ -6,11 +6,14 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.useGlobalPipes(new ValidationPipe({exceptionFactory: (e) => {
-    console.error(e);
-    throw new BadRequestException('You shall not pass!');
-  }
-}));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      exceptionFactory: (e) => {
+        console.error(e);
+        throw new BadRequestException('You shall not pass!');
+      },
+    }),
+  );
   const options = new DocumentBuilder()
     .setTitle('ARTIC API')
     .setDescription('Retrieve artwork data using ARTIC API')
